@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b5962">
+  <meta name="description" content="Cadastro de reservas e geração de contrato de locação da Dev. House.">
+  <title>Dev. House | Reservas</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">DH</div>
+    <div>
+      <p class="eyebrow">GESTÃO DE HOSPEDAGEM</p>
+      <h1>Dev. House <span>Reservas</span></h1>
+    </div>
+    <button id="installBtn" class="install-btn" hidden>Instalar app</button>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">CASA DE PRAIA</p>
+        <h2>Nova reserva</h2>
+        <p class="muted">Preencha os dados do locatário para calcular os valores e gerar o contrato em PDF.</p>
+      </div>
+      <div class="status-pill"><span></span> Formulário de reserva</div>
+    </section>
+
+    <form id="reservationForm" novalidate>
+      <section class="panel">
+        <div class="section-heading">
+          <div class="section-icon">01</div>
+          <div><h3>Dados do locatário</h3><p>Informações de quem ficará responsável pela reserva.</p></div>
+        </div>
+        <div class="form-grid">
+          <label class="field span-2">Nome completo
+            <input id="fullName" name="fullName" autocomplete="name" placeholder="Nome e sobrenome" required>
+          </label>
+          <label class="field">CPF
+            <input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14" required>
+          </label>
+          <label class="field">WhatsApp
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="16" required>
+          </label>
+          <label class="field">CEP
+            <div class="input-action">
+              <input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" required>
+              <button type="button" id="lookupCep" class="small-btn">Buscar</button>
+            </div>
+            <small id="cepMessage" class="helper" aria-live="polite">Digite o CEP para preencher o endereço automaticamente.</small>
+          </label>
+          <label class="field span-2">Endereço
+            <input id="address" name="address" autocomplete="street-address" placeholder="Rua, número, bairro, cidade - UF" required>
+          </label>
+          <label class="field">Complemento (opcional)
+            <input id="complement" name="complement" placeholder="Casa, apartamento etc.">
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div class="section-icon">02</div>
+          <div><h3>Detalhes da estadia</h3><p>Datas, valor combinado e política de animais.</p></div>
+        </div>
+        <div class="form-grid">
+          <label class="field">Check-in
+            <input id="checkin" name="checkin" type="date" required>
+          </label>
+          <label class="field">Check-out
+            <input id="checkout" name="checkout" type="date" required>
+          </label>
+          <label class="field">Valor da estadia (R$)
+            <div class="money-input"><span>R$</span><input id="stayValue" name="stayValue" type="number" min="0" step="0.01" placeholder="0,00" required></div>
+          </label>
+          <label class="field">Permite animais de estimação?
+            <select id="pets" name="pets" required>
+              <option value="Não">Não</option>
+              <option value="Sim">Sim</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel total-panel">
+        <div class="section-heading">
+          <div class="section-icon">03</div>
+          <div><h3>Resumo financeiro</h3><p>A taxa de prevenção de danos é calculada automaticamente em 10%.</p></div>
+        </div>
+        <div class="totals">
+          <div class="total-line"><span>Valor da estadia</span><strong id="stayDisplay">R$ 0,00</strong></div>
+          <div class="total-line"><span>Taxa de prevenção de danos (10%)</span><strong id="feeDisplay">R$ 0,00</strong></div>
+          <div class="total-line grand-total"><span>Valor total</span><strong id="totalDisplay">R$ 0,00</strong></div>
+        </div>
+        <p class="fine-print">Confirme no contrato como a taxa de prevenção será tratada (por exemplo, se é reembolsável e em quais condições). O modelo gerado usa uma cláusula editável para esse ponto.</p>
+      </section>
+
+      <div class="form-error" id="formError" role="alert" hidden></div>
+      <div class="actions">
+        <button type="reset" class="secondary-btn">Limpar formulário</button>
+        <button type="button" id="generateBtn" class="primary-btn"><span>Gerar contrato PDF</span><span aria-hidden="true">↗</span></button>
+      </div>
+    </form>
+
+    <section class="landlord-note">
+      <div class="note-icon">⌂</div>
+      <div><strong>Dados fixos do locador</strong><p>Willyan Marques Viana da Silva · CPF 109.741.394-24 · Rua Beira Mar II, N213, Santa Rita, Igarassu - PE · CEP 53620-736</p></div>
+    </section>
+    <footer>Dev. House · Gestão de reservas <span>•</span> Seus dados ficam neste dispositivo; o CEP é consultado no ViaCEP.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Dev. House - Reservas",
+  "short_name": "Dev. House",
+  "description": "Cadastro de reservas e geração de contratos da Dev. House",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f8f7",
+  "theme_color": "#0b5962",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
