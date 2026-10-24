@@ -70,11 +70,17 @@
           <div><h3>Detalhes da estadia</h3><p>Datas, valor combinado e política de animais.</p></div>
         </div>
         <div class="form-grid">
-          <label class="field">Check-in
+          <label class="field">Data de check-in
             <input id="checkin" name="checkin" type="date" required>
           </label>
-          <label class="field">Check-out
+          <label class="field">Horário de check-in
+            <input id="checkinTime" name="checkinTime" type="time" value="14:00" required>
+          </label>
+          <label class="field">Data de check-out
             <input id="checkout" name="checkout" type="date" required>
+          </label>
+          <label class="field">Horário de check-out
+            <input id="checkoutTime" name="checkoutTime" type="time" value="12:00" required>
           </label>
           <label class="field">Valor da estadia (R$)
             <div class="money-input"><span>R$</span><input id="stayValue" name="stayValue" type="number" min="0" step="0.01" placeholder="0,00" required></div>
