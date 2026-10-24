@@ -1,7 +1,7 @@
 {
-  "name": "Dev. House - Reservas",
-  "short_name": "Dev. House",
-  "description": "Cadastro de reservas e geração de contratos da Dev. House",
+  "name": "Dev. House - Contrato",
+  "short_name": "Dev. House | Contrato",
+  "description": "Geração de contratos de locação da Dev. House",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fffaf0",

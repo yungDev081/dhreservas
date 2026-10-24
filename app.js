@@ -83,7 +83,8 @@ function validateForm() {
   if ($('email').value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('email').value.trim())) errors.push('Confira o formato do e-mail.');
   if (digits($('cep').value).length !== 8) errors.push('O CEP deve conter 8 números.');
   if ($('checkin').value && $('checkout').value && $('checkout').value <= $('checkin').value) errors.push('O check-out deve ser posterior ao check-in.');
-  if ($('stayValue').value !== '' && Number($('stayValue').value) < 0) errors.push('O valor da estadia não pode ser negativo.'); \n  if ($('guestLimit').value !== '' && (!Number.isInteger(Number($('guestLimit').value)) || Number($('guestLimit').value) < 1)) errors.push('A quantidade de pessoas deve ser um número inteiro maior que zero.');
+  if ($('stayValue').value !== '' && Number($('stayValue').value) < 0) errors.push('O valor da estadia não pode ser negativo.');
+  if ($('guestLimit').value !== '' && (!Number.isInteger(Number($('guestLimit').value)) || Number($('guestLimit').value) < 1)) errors.push('A quantidade de pessoas deve ser um número inteiro maior que zero.');
   return errors;
 }
 

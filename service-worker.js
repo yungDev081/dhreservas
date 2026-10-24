@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dev-house-reservas-v4';
+const CACHE_NAME = 'dev-house-contratos-v4';
 const APP_SHELL = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon.svg', './logo-dev-house.png', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
