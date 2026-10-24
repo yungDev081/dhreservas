@@ -21,3 +21,7 @@ Aplicação web responsiva para cadastrar os dados do locatário, consultar CEP 
 - O CPF recebe uma validação básica de preenchimento, não uma validação completa dos dígitos verificadores.
 - O contrato é um modelo inicial, não aconselhamento jurídico. Revise as regras de pagamento, cancelamento, ocupação, vistoria e a natureza da taxa de prevenção de danos antes de usar. Considere revisão jurídica.
 - O carregamento da biblioteca jsPDF usa CDN; por isso a geração de PDF depende de conexão com a internet, salvo se você baixar e hospedar a biblioteca localmente.
+
+
+## Ícone do aplicativo
+O favicon da página e os ícones PWA para Android/iOS usam a logomarca oficial da Dev. House (icon-192.png e icon-512.png). O cache do service worker foi atualizado para v3.
