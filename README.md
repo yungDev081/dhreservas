@@ -1,27 +1,19 @@
-# Dev. House — PWA de reservas
+# Dev. House — PWA de contratos modelo 2
 
-Aplicação web responsiva para cadastrar os dados do locatário, consultar CEP via ViaCEP, calcular a taxa de prevenção de danos de 10% e gerar um contrato em PDF.
+Esta é uma versão separada do PWA de reservas, com o modelo do PDF de locação por temporada integrado ao gerador.
 
-## Como executar
-- Para testar rapidamente, abra `index.html` no navegador. A consulta de CEP e a biblioteca PDF precisam de internet.
-- Para instalar como PWA e habilitar o service worker, sirva a pasta por HTTPS ou localhost. Exemplo com Python: `python3 -m http.server 8000` e acesse `http://localhost:8000`.
-- Para publicar, envie os arquivos para uma hospedagem HTTPS.
+## Como abrir
 
-## Recursos
-- Layout adaptável para celular, tablet e desktop.
-- Máscaras simples para CPF, WhatsApp e CEP.
-- Busca de CEP usando a API pública ViaCEP.
-- Cálculo automático de taxa (10%) e total.
-- Geração local de PDF com jsPDF.
-- Manifesto e service worker para instalação/cache básico.
+- Abra `index.html` para preencher e gerar o contrato em PDF.
+- Para instalar como PWA e habilitar o cache, sirva a raiz do projeto em HTTPS ou localhost e acesse `/contratos-v2/`.
 
-## Importante
-- O endereço retornado pelo ViaCEP geralmente não inclui o número do imóvel; revise o endereço e informe o número no campo Endereço.
-- A aplicação não armazena reservas em banco de dados. O preenchimento permanece na página até ser limpo/fechado; o PDF é gerado no dispositivo.
-- O CPF recebe uma validação básica de preenchimento, não uma validação completa dos dígitos verificadores.
-- O contrato é um modelo inicial, não aconselhamento jurídico. Revise as regras de pagamento, cancelamento, ocupação, vistoria e a natureza da taxa de prevenção de danos antes de usar. Considere revisão jurídica.
-- O carregamento da biblioteca jsPDF usa CDN; por isso a geração de PDF depende de conexão com a internet, salvo se você baixar e hospedar a biblioteca localmente.
+## O que o PDF inclui
 
+- As 19 cláusulas do modelo de referência.
+- A cláusula 1.1 com o inventário de móveis e utensílios da casa.
+- Dados variáveis do locatário, datas, horários, limite de hóspedes, valor do aluguel e autorização de animais.
+- Cálculo de TCI de 10%, sinal de 50% do total e saldo para pagamento no check-in.
 
-## Ícone do aplicativo
-O favicon da página e os ícones PWA para Android/iOS usam a logomarca oficial da Dev. House (icon-192.png e icon-512.png). O cache do service worker foi atualizado para v3.
+A TCI, o sinal e o saldo são calculados pelo formulário a partir do valor do aluguel. Os dados bancários/PIX e os dados do imóvel e do locador estão fixados conforme o PDF de referência.
+
+A biblioteca jsPDF continua sendo carregada por CDN, então a geração do arquivo exige conexão com a internet.

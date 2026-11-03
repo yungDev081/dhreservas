@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffb91f">
-  <meta name="description" content="Cadastro de reservas e geração de contrato de locação da Dev. House.">
+  <meta name="description" content="Geração de contratos de locação por temporada da Dev. House">
   <title>Dev. House | Contratos</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png">
@@ -79,7 +79,7 @@
           <div class="section-icon">02</div>
           <div>
             <h3>Detalhes da estadia</h3>
-            <p>Datas, valor combinado e política de animais.</p>
+            <p>Datas, valor, limite de hóspedes e autorização de animais.</p>
           </div>
         </div>
         <div class="form-grid">
@@ -87,13 +87,13 @@
             <input id="checkin" name="checkin" type="date" required>
           </label>
           <label class="field">Horário de check-in
-            <input id="checkinTime" name="checkinTime" type="time" value="14:00" required>
+            <input id="checkinTime" name="checkinTime" type="time" value="08:00" required>
           </label>
           <label class="field">Data de check-out
             <input id="checkout" name="checkout" type="date" required>
           </label>
           <label class="field">Horário de check-out
-            <input id="checkoutTime" name="checkoutTime" type="time" value="12:00" required>
+            <input id="checkoutTime" name="checkoutTime" type="time" value="17:00" required>
           </label>
           <label class="field">Quantidade máxima de pessoas
             <input id="guestLimit" name="guestLimit" type="number" min="1" max="100" step="1" placeholder="Ex.: 6"
@@ -126,8 +126,6 @@
           </div>
           <div class="total-line grand-total"><span>Valor total</span><strong id="totalDisplay">R$ 0,00</strong></div>
         </div>
-        <p class="fine-print">Confirme no contrato como a taxa de prevenção será tratada (por exemplo, se é reembolsável
-          e em quais condições). O modelo gerado usa uma cláusula editável para esse ponto.</p>
       </section>
 
       <div class="form-error" id="formError" role="alert" hidden></div>
@@ -137,15 +135,7 @@
             aria-hidden="true">↗</span></button>
       </div>
     </form>
-
-    <!-- <section class="landlord-note">
-      <div class="note-icon">⌂</div>
-      <div><strong>Dados fixos do locador</strong>
-        <p>Willyan Marques Viana da Silva · CPF 109.741.394-24 · Rua Beira Mar II, nº 213, Santa Rita, Igarassu - PE ·
-          CEP 53620-736</p>
-      </div>
-    </section> -->
-    <footer>Dev. House · Gestão de Reservas <span>•</span> O CEP é consultado no ViaCEP.</footer>
+    <footer>Dev. House | Contratos <span>•</span> O CEP é consultado no ViaCEP.</footer>
   </main>
 </body>
 
