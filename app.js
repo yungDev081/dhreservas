@@ -170,7 +170,7 @@ function generateContract() {
   doc.setFont('helvetica', 'bold'); doc.setFontSize(13); doc.text('CONTRATO DE LOCAÇÃO POR TEMPORADA', pageW / 2, y, { align: 'center' }); y += 9;
   section('LOCADOR:');
   addTable([
-    ['NOME', 'WILLYAN MARQUES VIANA DA SILVA'], ['CNPJ', '65.047.124/0001-78'],
+    ['NOME', 'WILLYAN MARQUES VIANA DA SILVA'], ['CPF/CNPJ', '109.741.394-24'],
     ['ENDEREÇO', 'Av. Eng. Paulo de Sá Leitão, Nº 139, Forte Orange, Ilha de Itamaracá - PE'],
     ['CEP', '53900-000'], ['E-MAIL', 'devhouseilha@gmail.com'], ['WHATSAPP', '+55 81 98548-3142']
   ], [26, 148], { fontSize: 8.1 });
@@ -242,17 +242,17 @@ function generateContract() {
   ensure(32); y += 7;
   doc.setDrawColor(80, 90, 90); doc.line(margin, y, 94, y); doc.line(116, y, pageW - margin, y); y += 5;
   doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5); doc.text('LOCADOR', margin, y); doc.text('LOCATÁRIO', 116, y);
-  y += 5; doc.text('Willyan Marques V da Silva', margin, y); doc.text(data.name, 116, y);
+  y += 5; doc.text('Willyan Marques Viana da Silva', margin, y); doc.text(data.name, 116, y);
   y += 8; doc.text(`Ilha de Itamaracá, ${formatDate(new Date().toISOString().slice(0, 10))}.`, margin, y);
   const pageCount = doc.internal.getNumberOfPages();
   for (let page = 1; page <= pageCount; page++) {
     doc.setPage(page); doc.setDrawColor(190, 205, 205); doc.line(margin, 284, pageW - margin, 284);
     doc.setFont('helvetica', 'normal'); doc.setFontSize(7.5); doc.setTextColor(90, 105, 105);
-    doc.text('Dev. House · Contrato de locação por temporada', margin, 289);
+    doc.text('Dev. House | Contrato de locação por temporada', margin, 289);
     doc.text(`${page}/${pageCount}`, pageW - margin, 289, { align: 'right' });
   }
   const safeName = data.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
-  doc.save(`Contrato_Dev_House_Modelo_2_${safeName || 'Locatario'}.pdf`);
+  doc.save(`Contrato_Locacao_Dev_House_${safeName || 'Locatario'}.pdf`);
 }
 function numberWords(n) {
   const words = ['', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
