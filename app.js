@@ -221,7 +221,6 @@ function generateContract() {
   addText('Não será permitida em nenhuma hipótese a presença de animais de estimação no imóvel, de qualquer porte, ainda que transitoriamente, exceto se combinado com o locador previamente antes da assinatura deste contrato.');
   addText(`Foi permitido pelo locador algum animal de estimação?  ${data.pets === 'Sim' ? 'Sim ( X )   Não (   )' : 'Sim (   )   Não ( X )'}`);
   section('13) DA VISTORIA:');
-  addText('O inquilino entrará no imóvel acompanhado do locador ou pessoa de sua confiança, e será feita vistoria do estado do imóvel e do mobiliário. Qualquer avaria detectada no momento da vistoria será anotada, a pedido do inquilino, no presente contrato.');
   addText('No momento da saída do imóvel, uma nova vistoria será realizada em até 72 horas após a data e horário de check-out sem a obrigatoriedade da presença do inquilino para averiguar se houve algum dano ou avaria.');
   section('14) DESPESAS DE ÁGUA, LUZ, GÁS, IMPOSTOS, CONDOMÍNIO, TV A CABO, INTERNET:');
   addText('O valor da locação inclui todas essas despesas, bem como outras não discriminadas expressamente neste contrato.');
